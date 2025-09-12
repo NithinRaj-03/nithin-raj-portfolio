@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Nithin Raj S — Embedded Engineer & PCB Designer</title>
+    <meta name="description"
+        content="Portfolio of Nithin Raj S — Embedded Engineer, PCB design, Embedded systems, LoRa, Modbus, Wi-Fi" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- Simple Reset + Modern Styling -->
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --accent: #06b6d4;
+            --glass: rgba(255, 255, 255, 0.03);
+            --maxw: 1100px;
+            --radius: 12px;
+            --gap: 20px;
+            font-family: Inter, Roboto, Segoe UI, system-ui, -apple-system, "Helvetica Neue", Arial;
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #07111a 0%, #08131a 60%);
+            color: #e6eef6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .site {
+            width: 100%;
+            max-width: var(--maxw)
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .avatar {
+            width: 86px;
+            height: 86px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 28px;
+            color: #042027;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+        }
+
+        .name h1 {
+            margin: 0;
+            font-size: 20px;
+            letter-spacing: 0.2px
+        }
+
+        .name p {
+            margin: 2px 0 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px
+        }
+
+        .btn {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 10px 12px;
+            border-radius: 10px;
+            color: inherit;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: var(--gap)
+        }
+
+        @media (max-width:980px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .actions {
+                display: none
+            }
+
+            .avatar {
+                width: 70px;
+                height: 70px
+            }
+        }
+
+        /* Card */
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.015));
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+        }
+
+        /* About */
+        .about {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start
+        }
+
+        .about .meta {
+            flex: 1
+        }
+
+        .lead {
+            color: #cfeef7;
+            margin: 0 0 12px 0
+        }
+
+        .chip {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-right: 8px;
+            color: var(--muted)
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* Experience list */
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .job {
+            border-left: 3px solid rgba(255, 255, 255, 0.04);
+            padding: 12px 14px
+        }
+
+        .job h3 {
+            margin: 0;
+            font-size: 15px
+        }
+
+        .job .meta {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px
+        }
+
+        .job ul {
+            margin: 8px 0 0 18px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        /* Sidebar */
+        aside .card+.card {
+            margin-top: var(--gap)
+        }
+
+        .sidebar-section h4 {
+            margin: 0 0 8px 0;
+            font-size: 14px
+        }
+
+        .contact p {
+            margin: 6px 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        a.link {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        @media (max-width:640px) {
+            .projects {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .project {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px
+        }
+
+        .project h5 {
+            margin: 0 0 6px 0
+        }
+
+        .project p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 28px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* small helpers */
+        .muted {
+            color: var(--muted)
+        }
+
+        .download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        /* nav */
+        nav {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        nav a {
+            color: var(--muted);
+            font-size: 13px;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 8px
+        }
+
+        nav a:hover {
+            color: var(--accent)
+        }
+
+        /* contact form */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: inherit;
+        }
+
+        .cta {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), #7c3aed);
+            color: #042027;
+            font-weight: 600;
+            border: none;
+            cursor: pointer
+        }
+
+        /* subtle separators */
+        .sep {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+            margin: 14px 0
+        }
+
+        /* avatar image fallback 1 */
+        /* .avatar-img {
+            width: 86px;
+            height: 86px;
+            border-radius: 14px;
+            object-fit: cover;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+        }
+
+        @media (max-width:980px) {
+            .avatar-img {
+                width: 70px;
+                height: 70px;
+            }
+        } */
+
+        .avatar-polaroid {
+            width: 120px;
+            padding: 8px;
+            background: white;
+            color: black;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.5);
+        }
+
+        .avatar-polaroid img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .avatar-polaroid p {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site">
+        <header>
+            <div class="brand">
+                <!-- <img src="DP.jpg" alt="Nithin Raj Photo" class="avatar-img" /> -->
+                <div class="avatar-polaroid">
+                    <img src="DP.jpg" alt="Nithin Raj Photo" />
+                    <p>Nithin Raj S</p>
+                </div>
+                <!-- <div class="avatar">NR</div> -->
+                <div class="name">
+                    <h1>Nithin Raj S</h1>
+                    <p>Embedded Engineer • PCB Design • Firmware & Hardware integration</p>
+                    <div style="margin-top:8px">
+                        <span class="chip">Bengaluru</span>
+                        <span class="chip">Embedded Systems</span>
+                        <span class="chip">PCB Layout</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px">
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="actions">
+                    <a class="btn" href="mailto:snraj578975@gmail.com" title="Email">
+                        <!-- mail icon -->
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                            <path d="M3 7.5L12 13l9-5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        Email
+                    </a>
+                    <a class="btn" href="Nithin_Raj_Resume.pdf" download title="Download resume">
+                        <!-- download icon -->
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                            <path d="M12 3v12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                            <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M21 21H3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                        </svg>
+                        Resume
+                    </a>
+                    <a class="btn" href="https://www.linkedin.com/in/nithin-raj-5368a8216" target="_blank"
+                        rel="noopener" title="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="grid">
+            <!-- left: main content -->
+            <section>
+                <div id="about" class="card about">
+                    <div class="meta">
+                        <p class="lead">Focused and hardworking Embedded Engineer with 2+ years of professional
+                            experience working on defense-quality products and client projects. Strong system-level
+                            understanding and hands-on experience in firmware, PCB design, sensor integration, and
+                            communication protocols.</p>
+
+                        <div class="sep"></div>
+
+                        <h4>Core Skills</h4>
+                        <div class="skills" aria-hidden>
+                            <span class="skill">C / C++</span>
+                            <span class="skill">Microcontrollers (ESP32,Basics in STM32)</span>
+                            <span class="skill">PCB Design & Layout</span>
+                            <span class="skill">I2C • SPI • UART • Modbus</span>
+                            <span class="skill">MQTT • HTTP • LoRaWAN • BLE • Wi-Fi</span>
+                            <span class="skill">Analog & Digital Sensors</span>
+                            <span class="skill">Python • SQL</span>
+                            <span class="skill">Hardware Debugging</span>
+                        </div>
+
+                        <div style="margin-top:12px">
+                            <strong>Tools & EDA:</strong> KiCad, Altium basics, Eagle, Git, VSCode, PlatformIO
+                        </div>
+                    </div>
+                </div>
+
+                <div id="experience" class="card" style="margin-top:18px">
+                    <h3 style="margin:0 0 8px 0">Experience</h3>
+                    <div class="list">
+                        <div class="job">
+                            <h3>Embedded Engineer — Sun Bio IT Solutions</h3>
+                            <div class="meta">Aug 2022 — Present · Bengaluru</div>
+                            <ul>
+                                <li>Designing and developing embedded systems for defense and commercial applications.
+                                </li>
+                                <li>Firmware development in C/C++ for microcontrollers; implement and test device
+                                    drivers and RTOS tasks.</li>
+                                <li>PCB design & layout for high-speed digital and analog circuits, resolving
+                                    fabrication and assembly issues.</li>
+                                <li>Integrating sensors & communication (I2C, SPI, UART, RS485/Modbus, LoRaWAN, Wi-Fi,
+                                    MQTT, HTTP).</li>
+                                <li>Debugging hardware/software issues; performing performance analysis and
+                                    optimizations.</li>
+                                <li>Documenting designs, test procedures and ensuring compliance with project standards.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Add additional roles here if needed -->
+                    </div>
+                </div>
+
+                <div id="projects" class="card" style="margin-top:18px">
+                    <h3 style="margin:0 0 10px 0">Selected Projects & Work</h3>
+                    <div class="projects">
+                        <div class="project">
+                            <h5>3-Phase Energy Monitoring Module (ESP32 + ADE7758)</h5>
+                            <p>Designed firmware and PCB for 3-phase energy metering, calibrated RMS/energy
+                                calculations, implemented data logging and LoRa/HTTP reporting for remote monitoring.
+                            </p>
+                        </div>
+
+                        <div class="project">
+                            <h5>LoRa Sensor Node (SX1262)</h5>
+                            <p>Developed low-power sensor node firmware, implemented LoRaWAN stack and OTA-friendly
+                                bootloader. Optimized for battery life and reliability.</p>
+                        </div>
+
+                        <div class="project">
+                            <h5>RS485 Modbus RTU Gateway</h5>
+                            <p>Built Modbus RTU slave/master for multiple devices, handled CRC & parity issues, and
+                                integrated Modbus reporting with MQTT bridge.</p>
+                        </div>
+
+                        <div class="project">
+                            <h5>High-Speed Digital & Analog PCBs</h5>
+                            <p>Designed and routed complex multi-layer PCBs with attention to signal integrity, power
+                                distribution, and EMI mitigation.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px;color:var(--muted);font-size:13px">
+                        Want these projects as case-studies? I can expand each into detailed writeups (design,
+                        schematics, PCB screenshots, firmware highlights).
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:18px">
+                    <h3 style="margin:0 0 8px 0">Education</h3>
+                    <div class="muted" style="margin-bottom:8px">B.E. Electronics and Communication Engineering — RVS
+                        College of Engineering and Technology</div>
+                    <div class="muted">Aug 2018 — Jul 2022</div>
+                </div>
+
+                <div id="contact" class="card" style="margin-top:18px">
+                    <h3 style="margin:0 0 8px 0">Contact</h3>
+                    <div class="contact">
+                        <p><strong>Email:</strong> <a class="link"
+                                href="mailto:snraj578975@gmail.com">snraj578975@gmail.com</a></p>
+                        <p><strong>Phone:</strong> <span class="muted">+91 98438 58447</span></p>
+                        <p><strong>LinkedIn:</strong> <a class="link" target="_blank" rel="noopener"
+                                href="https://www.linkedin.com/in/nithin-raj-5368a8216">linkedin.com/in/nithin-raj-5368a8216</a>
+                        </p>
+                    </div>
+
+                    <div class="sep"></div>
+
+                    <h4 style="margin-bottom:8px">Message me</h4>
+                    <form class="contact-form" onsubmit="openMail(event)">
+                        <input type="text" id="name" placeholder="Your name" required />
+                        <input type="email" id="email" placeholder="Your email" required />
+                        <textarea id="message" rows="5" placeholder="Brief message / project details"
+                            required></textarea>
+                        <button class="cta" type="submit">Send Email</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- right: sidebar -->
+            <aside>
+                <div class="card sidebar-section">
+                    <h4>Quick Facts</h4>
+                    <div style="margin-top:10px">
+                        <p class="muted"><strong>Location:</strong> Bengaluru</p>
+                        <p class="muted"><strong>Experience:</strong> 2+ years (Embedded Systems)</p>
+                        <p class="muted"><strong>Languages:</strong> English (Proficient) • Tamil (Native) • Kannada
+                            (Intermediate)</p>
+                    </div>
+
+                    <div class="sep"></div>
+
+                    <h4>Technical Highlights</h4>
+                    <ul style="margin:8px 0 0 18px;color:var(--muted);line-height:1.6">
+                        <li>Microcontroller firmware (ESP32, Basics of STM32)</li>
+                        <li>Multilayer PCB design & Debugging</li>
+                        <li>Modbus RTU/TCP, MQTT, LoRaWAN</li>
+                        <li>Sensor signal conditioning & ADC</li>
+                    </ul>
+
+                    <div class="sep"></div>
+
+                    <h4>Download</h4>
+                    <p class="muted">Full resume & PDF portfolio</p>
+                    <a class="btn download" href="Nithin_Raj_Resume.pdf" download>Download PDF</a>
+                </div>
+
+                <div class="card" style="margin-top:var(--gap)">
+                    <h4>Availability</h4>
+                    <p class="muted">Open to mid/senior embedded firmware & hardware roles. Interested in systems
+                        involving IoT, LoRa, energy monitoring, and industrial communication.</p>
+                </div>
+
+                <div class="card" style="margin-top:var(--gap)">
+                    <h4>Extras</h4>
+                    <p class="muted" style="margin:0">If you want, I can:</p>
+                    <ul style="margin:8px 0 0 18px;color:var(--muted);line-height:1.6">
+                        <li>Export this portfolio to a PDF or one-page CV</li>
+                        <li>Create a GitHub repo with the project source</li>
+                        <li>Add project case study pages with schematics & firmware snippets</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            © <span id="year"></span> Nithin Raj S · Built with HTML & CSS · <span class="muted">Contact:
+                snraj578975@gmail.com</span>
+        </footer>
+    </div>
+
+    <script>
+        // Set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple mailto contact form handler
+        function openMail(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const subject = encodeURIComponent("Portfolio contact from " + name);
+            const body = encodeURIComponent(
+                "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+            );
+            window.location.href = `mailto:snraj578975@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('nav a').forEach(a => {
+            a.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                const id = a.getAttribute('href').slice(1);
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+
+</html>
