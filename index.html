@@ -8,8 +8,6 @@
     <meta name="description"
         content="Portfolio of Nithin Raj S — Embedded Engineer, PCB design, Embedded systems, LoRa, Modbus, Wi-Fi" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
-    <!-- Simple Reset + Modern Styling -->
     <style>
         :root {
             --bg: #0f1724;
@@ -64,18 +62,26 @@
             align-items: center
         }
 
-        .avatar {
-            width: 86px;
-            height: 86px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--accent), #7c3aed);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 28px;
-            color: #042027;
-            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+        .avatar-polaroid {
+            width: 120px;
+            padding: 8px;
+            background: white;
+            color: black;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.5);
+        }
+
+        .avatar-polaroid img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .avatar-polaroid p {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0;
         }
 
         .name h1 {
@@ -123,9 +129,42 @@
                 display: none
             }
 
-            .avatar {
-                width: 70px;
-                height: 70px
+            .avatar-polaroid {
+                width: 80px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width:700px) {
+            body {
+                padding: 10px 2vw;
+            }
+
+            .site {
+                max-width: 100vw;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .brand {
+                gap: 8px;
+            }
+
+            .avatar-polaroid {
+                width: 60px;
+                padding: 3px;
+            }
+
+            .name h1 {
+                font-size: 16px;
+            }
+
+            .name p {
+                font-size: 11px;
             }
         }
 
@@ -177,6 +216,17 @@
             border-radius: 10px;
             font-size: 13px;
             color: var(--muted)
+        }
+
+        @media (max-width:700px) {
+            .skills {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .skill {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
         }
 
         /* Experience list */
@@ -236,9 +286,9 @@
             gap: 12px
         }
 
-        @media (max-width:640px) {
+        @media (max-width:900px) {
             .projects {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
             }
         }
 
@@ -296,6 +346,38 @@
             color: var(--accent)
         }
 
+        /* Hamburger for mobile nav */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 28px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        @media (max-width:700px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: var(--card);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100vw;
+                z-index: 10;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+                padding: 10px 0;
+            }
+            nav.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+
         /* contact form */
         .contact-form input,
         .contact-form textarea {
@@ -327,44 +409,6 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
             margin: 14px 0
         }
-
-        /* avatar image fallback 1 */
-        /* .avatar-img {
-            width: 86px;
-            height: 86px;
-            border-radius: 14px;
-            object-fit: cover;
-            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
-        }
-
-        @media (max-width:980px) {
-            .avatar-img {
-                width: 70px;
-                height: 70px;
-            }
-        } */
-
-        .avatar-polaroid {
-            width: 120px;
-            padding: 8px;
-            background: white;
-            color: black;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.5);
-        }
-
-        .avatar-polaroid img {
-            width: 100%;
-            border-radius: 6px;
-            margin-bottom: 6px;
-        }
-
-        .avatar-polaroid p {
-            font-size: 13px;
-            font-weight: bold;
-            margin: 0;
-        }
     </style>
 </head>
 
@@ -372,12 +416,10 @@
     <div class="site">
         <header>
             <div class="brand">
-                <!-- <img src="DP.jpg" alt="Nithin Raj Photo" class="avatar-img" /> -->
                 <div class="avatar-polaroid">
                     <img src="Profile Photo.jpg" alt="Nithin Raj Photo" />
                     <p>Nithin Raj S</p>
                 </div>
-                <!-- <div class="avatar">NR</div> -->
                 <div class="name">
                     <h1>Nithin Raj S</h1>
                     <p>Embedded Engineer • PCB Design • Firmware & Hardware integration • SCADA Systems</p>
@@ -388,37 +430,32 @@
                     </div>
                 </div>
             </div>
-
-            <div style="display:flex;align-items:center;gap:10px">
-                <nav>
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-
-                <div class="actions">
-                    <a class="btn" href="mailto:snraj578975@gmail.com" title="Email">
-                        <!-- mail icon -->
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                            <path d="M3 7.5L12 13l9-5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        Email
-                    </a>
-                    <a class="btn" href="Nithin Raj S.pdf" download title="Download resume">
-                        <!-- download icon -->
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                            <path d="M12 3v12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
-                            <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M21 21H3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
-                        </svg>
-                        Resume
-                    </a>
-                    <a class="btn" href="https://www.linkedin.com/in/nithin-raj-5368a8216" target="_blank"
-                        rel="noopener" title="LinkedIn">LinkedIn</a>
-                </div>
+            <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="actions">
+                <a class="btn" href="mailto:snraj578975@gmail.com" title="Email">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                        <path d="M3 7.5L12 13l9-5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Email
+                </a>
+                <a class="btn" href="Nithin Raj S.pdf" download title="Download resume">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                        <path d="M12 3v12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                        <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21 21H3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                    </svg>
+                    Resume
+                </a>
+                <a class="btn" href="https://www.linkedin.com/in/nithin-raj-5368a8216" target="_blank"
+                    rel="noopener" title="LinkedIn">LinkedIn</a>
             </div>
         </header>
 
@@ -440,7 +477,7 @@
                             <span class="skill">Microcontrollers (ESP32,Basics in STM32)</span>
                             <span class="skill">PCB Design & Layout</span>
                             <span class="skill">I2C • SPI • UART • Modbus</span>
-                            <span class="skill">MQTT • HTTP • LoRaWAN • BLE • Wi-Fi</span>
+                            <span class="skill">MQTT • HTTP • LoRaWAN  • Wi-Fi</span>
                             <span class="skill">Analog & Digital Sensors</span>
                             <span class="skill">Basic Python</span>
                             <span class="skill">Hardware Debugging</span>
@@ -473,8 +510,6 @@
                                 </li>
                             </ul>
                         </div>
-
-                        <!-- Add additional roles here if needed -->
                     </div>
                 </div>
 
@@ -611,16 +646,6 @@
                     <p class="muted">Open to mid/senior embedded firmware & hardware roles. Interested in systems
                         involving IoT, LoRa, energy monitoring, and industrial communication.</p>
                 </div>
-                <!-- 
-                <div class="card" style="margin-top:var(--gap)">
-                    <h4>Extras</h4>
-                    <p class="muted" style="margin:0">If you want, I can:</p>
-                    <ul style="margin:8px 0 0 18px;color:var(--muted);line-height:1.6">
-                        <li>Export this portfolio to a PDF or one-page CV</li>
-                        <li>Create a GitHub repo with the project source</li>
-                        <li>Add project case study pages with schematics & firmware snippets</li>
-                    </ul>
-                </div> -->
             </aside>
         </main>
 
@@ -654,8 +679,17 @@
                 const id = a.getAttribute('href').slice(1);
                 const el = document.getElementById(id);
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Close menu on mobile after click
+                if (window.innerWidth <= 700) {
+                    document.querySelector('nav').classList.remove('open');
+                }
             });
         });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('open');
+        }
     </script>
 </body>
 
